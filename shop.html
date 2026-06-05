@@ -175,7 +175,18 @@
         cart.forEach((item, idx) => {
             const itemTotal = item.price * item.qty;
             total += itemTotal;
-            html += `<div class="cart-item"><span><strong>${item.name}</strong></span><div class="cart-controls"><button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button><span>${item.qty}</span><button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button><button class="remove-btn" onclick="removeItem(${idx})">🗑️</button></div><span>ETB ${itemTotal}</span></div>`;
+            html += `
+                <div class="cart-item">
+                    <span class="item-name"><strong>${item.name}</strong></span>
+                    <div class="cart-controls">
+                        <button class="qty-btn minus-btn" onclick="changeQty(${idx}, -1)">−</button>
+                        <span class="item-qty">${item.qty}</span>
+                        <button class="qty-btn plus-btn" onclick="changeQty(${idx}, 1)">+</button>
+                        <button class="remove-btn" onclick="removeItem(${idx})">🗑️</button>
+                    </div>
+                    <span class="item-total-price">ETB ${itemTotal}</span>
+                </div>
+            `;
         });
         cartDiv.innerHTML = html;
         totalSpan.textContent = `ETB ${total}`;
@@ -193,8 +204,11 @@
 
     window.changeQty = function(idx, delta) {
         const newQty = cart[idx].qty + delta;
-        if (newQty <= 0) cart.splice(idx, 1);
-        else cart[idx].qty = newQty;
+        if (newQty <= 0) {
+            cart.splice(idx, 1);
+        } else {
+            cart[idx].qty = newQty;
+        }
         updateCart();
     };
 
@@ -209,8 +223,11 @@
             const name = itemDiv.getAttribute('data-name');
             const price = parseInt(itemDiv.getAttribute('data-price'));
             const existing = cart.find(i => i.name === name);
-            if (existing) existing.qty++;
-            else cart.push({ name, price, qty: 1 });
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
             updateCart();
             showToast(`✓ ${name} added`);
         });
@@ -220,15 +237,23 @@
         const name = document.getElementById('orderName')?.value;
         const phone = document.getElementById('orderPhone')?.value;
         const address = document.getElementById('orderAddress')?.value;
-        if (!name || !phone || !address) { alert('Please fill all fields'); return; }
-        if (cart.length === 0) { alert('Your cart is empty'); return; }
+        if (!name || !phone || !address) { 
+            alert('Please fill all fields'); 
+            return; 
+        }
+        if (cart.length === 0) { 
+            alert('Your cart is empty'); 
+            return; 
+        }
         const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
         showToast(`✅ Thanks ${name}! Your order (ETB ${total}) has been placed.`);
         cart = [];
         updateCart();
         document.getElementById('orderName').value = '';
         document.getElementById('orderPhone').value = '';
+        document.getElementById('orderEmail').value = '';
         document.getElementById('orderAddress').value = '';
+        document.getElementById('specialInstructions').value = '';
     });
 </script>
 </body>

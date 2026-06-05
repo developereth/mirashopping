@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="MIRA SHOPPING - Sweets that make life sweeter. Premium sweets & treats in Addis Ababa, Ethiopia">
-    <meta name="theme-color" content="#0A0A0A">
+    <meta name="theme-color" content="#FFFFFF">
     <title>MIRA SHOPPING | Sweets that make life sweeter</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -60,7 +60,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1920&h=800&fit=crop');"></div>
-        <div class="hero-overlay-dark"></div>
+        <div class="hero-overlay-light"></div>
         <div class="container hero-content">
             <h1>Sweets that make <span class="highlight">life sweeter</span> <span class="heart">❤️</span></h1>
             <p>Premium quality sweets & treats in the heart of Addis Ababa</p>
@@ -68,11 +68,24 @@
         </div>
     </section>
 
+    <!-- Category Navigation - Horizontal -->
+    <section class="category-nav-section">
+        <div class="container">
+            <div class="category-nav-horizontal">
+                <a href="#" class="category-link active" data-cat="all">🍬 All Sweets</a>
+                <a href="#" class="category-link" data-cat="chocolates">🍫 Chocolates</a>
+                <a href="#" class="category-link" data-cat="cakes">🎂 Cakes</a>
+                <a href="#" class="category-link" data-cat="candies">🍭 Candies</a>
+                <a href="#" class="category-link" data-cat="gifts">🎁 Gift Boxes</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Featured Products -->
     <section class="container">
         <h2 class="section-title">💜 Bestsellers</h2>
-        <div class="cards-grid">
-            <div class="product-card">
+        <div class="cards-grid" id="featuredGrid">
+            <div class="product-card" data-category="chocolates">
                 <img src="https://images.unsplash.com/photo-1587314156026-5df6b3fa0a5b?w=400&h=300&fit=crop" class="card-image" alt="Chocolate Box">
                 <div class="card-content">
                     <h3>Premium Chocolate Box</h3>
@@ -81,7 +94,7 @@
                     <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-category="candies">
                 <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop" class="card-image" alt="Macarons">
                 <div class="card-content">
                     <h3>French Macarons</h3>
@@ -90,7 +103,7 @@
                     <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-category="cakes">
                 <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9582?w=400&h=300&fit=crop" class="card-image" alt="Cupcake Set">
                 <div class="card-content">
                     <h3>Luxury Cupcakes</h3>
@@ -99,7 +112,7 @@
                     <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-category="candies">
                 <img src="https://images.unsplash.com/photo-1581798459219-318e76aecc7b?w=400&h=300&fit=crop" class="card-image" alt="Candy Bundle">
                 <div class="card-content">
                     <h3>Gourmet Candy Bundle</h3>
@@ -182,5 +195,23 @@
 
 <div id="toastMsg" class="toast-msg">✓ Added to cart</div>
 <script src="js/main.js"></script>
+<script>
+    // Category filter for home page
+    document.querySelectorAll('.category-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+            const category = this.dataset.cat;
+            document.querySelectorAll('.product-card').forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>

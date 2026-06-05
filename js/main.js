@@ -1,46 +1,38 @@
 /* ============================================
-   MIRA SHOPPING - COMPLETE JAVASCRIPT
-   Mobile Sidebar | Toast Notifications | Cart Functions
+   MIRA SHOPPING - COMPLETE FINAL JAVASCRIPT
+   Website: Sweets that make life sweeter
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ========== MOBILE SIDEBAR ==========
-    const sidebar = document.getElementById('mobileSidebar');
-    const overlay = document.getElementById('sidebarOverlay');
-    const openBtn = document.getElementById('mobileMenuBtn');
-    const closeBtn = document.getElementById('closeSidebarBtn');
+    // ========== 1. MOBILE SIDEBAR TOGGLE ==========
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
     
     function openSidebar() {
-        if (sidebar) sidebar.classList.add('open');
-        if (overlay) overlay.classList.add('active');
+        if (mobileSidebar) mobileSidebar.classList.add('open');
+        if (sidebarOverlay) sidebarOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
     
     function closeSidebar() {
-        if (sidebar) sidebar.classList.remove('open');
-        if (overlay) overlay.classList.remove('active');
+        if (mobileSidebar) mobileSidebar.classList.remove('open');
+        if (sidebarOverlay) sidebarOverlay.classList.remove('active');
         document.body.style.overflow = '';
     }
     
-    if (openBtn) {
-        openBtn.addEventListener('click', openSidebar);
-    }
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openSidebar);
+    if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
+    if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
     
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeSidebar);
-    }
-    
-    if (overlay) {
-        overlay.addEventListener('click', closeSidebar);
-    }
-    
-    // Close sidebar when clicking navigation links
+    // Close sidebar when clicking any navigation link
     document.querySelectorAll('.sidebar-nav a, .sidebar-order-btn').forEach(link => {
         link.addEventListener('click', closeSidebar);
     });
     
-    // ========== TOAST NOTIFICATION SYSTEM ==========
+    // ========== 2. TOAST NOTIFICATION SYSTEM ==========
     window.showToast = function(message, duration = 2500) {
         let toast = document.getElementById('toastMsg');
         if (!toast) {
@@ -56,32 +48,147 @@ document.addEventListener('DOMContentLoaded', function() {
         }, duration);
     };
     
-    // ========== ADD TO CART BUTTONS (All Pages) ==========
-    document.querySelectorAll('.add-to-cart').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const itemName = this.getAttribute('data-item') || 'Item';
-            showToast(`✓ ${itemName} added to cart!`);
-        });
-    });
-    
-    // ========== SHOP NOW BUTTONS ==========
-    document.querySelectorAll('.shop-now-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            // Just redirects to shop page, no toast needed
-        });
-    });
-    
-    // ========== ACTIVE NAVIGATION LINK ==========
+    // ========== 3. ACTIVE NAVIGATION LINK ==========
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.desktop-nav a, .sidebar-nav a').forEach(link => {
         const href = link.getAttribute('href');
         if (href === currentPage) {
             link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
     
-    // ========== CATERING/BULK INQUIRY BUTTONS ==========
+    // ========== 4. ADD TO CART BUTTONS (All Pages) ==========
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const itemName = this.getAttribute('data-item') || 'Item';
+            showToast(`✓ ${itemName} added to cart!`);
+        });
+    });
+    
+    // ========== 5. CATEGORY FILTER FOR PRODUCTS PAGE ==========
+    const filterBtns = document.querySelectorAll('.cat-filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+    
+    if (filterBtns.length > 0 && productCards.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                // Filter products
+                productCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.4s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+    
+    // ========== 6. CONTACT FORM SUBMIT ==========
+    const sendContactBtn = document.getElementById('sendContactBtn');
+    if (sendContactBtn) {
+        sendContactBtn.addEventListener('click', function() {
+            const name = document.getElementById('contactName')?.value.trim();
+            const email = document.getElementById('contactEmail')?.value.trim();
+            const message = document.getElementById('contactMsg')?.value.trim();
+            
+            if (!name || !email || !message) {
+                showToast('⚠️ Please fill all fields (Name, Email, Message)');
+                return;
+            }
+            
+            if (!email.includes('@')) {
+                showToast('⚠️ Please enter a valid email address');
+                return;
+            }
+            
+            showToast('📨 Message sent! We\'ll reply within 24 hours.');
+            
+            // Clear form
+            if (document.getElementById('contactName')) document.getElementById('contactName').value = '';
+            if (document.getElementById('contactEmail')) document.getElementById('contactEmail').value = '';
+            if (document.getElementById('contactMsg')) document.getElementById('contactMsg').value = '';
+        });
+    }
+    
+    // ========== 7. CATERING FORM SUBMIT ==========
+    const submitCateringBtn = document.getElementById('submitCateringBtn');
+    if (submitCateringBtn) {
+        submitCateringBtn.addEventListener('click', function() {
+            const name = document.getElementById('catName')?.value.trim();
+            const email = document.getElementById('catEmail')?.value.trim();
+            
+            if (!name || !email) {
+                showToast('⚠️ Please enter your name and email');
+                return;
+            }
+            
+            showToast('🎉 Catering request received! We\'ll contact you soon.');
+            
+            // Clear form
+            if (document.getElementById('catName')) document.getElementById('catName').value = '';
+            if (document.getElementById('catEmail')) document.getElementById('catEmail').value = '';
+            if (document.getElementById('catPhone')) document.getElementById('catPhone').value = '';
+            if (document.getElementById('catEvent')) document.getElementById('catEvent').value = '';
+            if (document.getElementById('catMsg')) document.getElementById('catMsg').value = '';
+        });
+    }
+    
+    // ========== 8. BULK ORDER FORM SUBMIT ==========
+    const submitBulkBtn = document.getElementById('submitBulkBtn');
+    if (submitBulkBtn) {
+        submitBulkBtn.addEventListener('click', function() {
+            const name = document.getElementById('bulkName')?.value.trim();
+            
+            if (!name) {
+                showToast('⚠️ Please enter your name');
+                return;
+            }
+            
+            showToast('✓ Bulk order request sent! We\'ll contact you soon.');
+            
+            // Clear form
+            if (document.getElementById('bulkName')) document.getElementById('bulkName').value = '';
+            if (document.getElementById('bulkEmail')) document.getElementById('bulkEmail').value = '';
+            if (document.getElementById('bulkPhone')) document.getElementById('bulkPhone').value = '';
+            if (document.getElementById('bulkMsg')) document.getElementById('bulkMsg').value = '';
+        });
+    }
+    
+    // ========== 9. REGULAR ORDER FORM SUBMIT ==========
+    const submitOrderBtn = document.getElementById('submitOrderBtn');
+    if (submitOrderBtn) {
+        submitOrderBtn.addEventListener('click', function() {
+            const name = document.getElementById('orderName')?.value.trim();
+            const phone = document.getElementById('orderPhone')?.value.trim();
+            const address = document.getElementById('orderAddress')?.value.trim();
+            
+            if (!name || !phone || !address) {
+                showToast('⚠️ Please fill Name, Phone, and Address');
+                return;
+            }
+            
+            showToast(`✨ Thanks ${name}! Your order has been placed. We'll call you to confirm.`);
+            
+            // Clear form
+            if (document.getElementById('orderName')) document.getElementById('orderName').value = '';
+            if (document.getElementById('orderPhone')) document.getElementById('orderPhone').value = '';
+            if (document.getElementById('orderEmail')) document.getElementById('orderEmail').value = '';
+            if (document.getElementById('orderAddress')) document.getElementById('orderAddress').value = '';
+            if (document.getElementById('specialInstructions')) document.getElementById('specialInstructions').value = '';
+        });
+    }
+    
+    // ========== 10. CATERING INQUIRY BUTTONS (Scroll to form) ==========
     document.querySelectorAll('.catering-inquiry, .bulk-inquiry').forEach(btn => {
         btn.addEventListener('click', function() {
             const formSection = document.getElementById('cateringForm') || document.getElementById('bulkForm');
@@ -94,211 +201,165 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ========== FORM SUBMISSION HANDLERS ==========
-    
-    // Catering Form Submit
-    const submitCatering = document.getElementById('submitCateringBtn');
-    if (submitCatering) {
-        submitCatering.addEventListener('click', function() {
-            const name = document.getElementById('catName')?.value;
-            const email = document.getElementById('catEmail')?.value;
-            if (!name || !email) {
-                showToast('⚠️ Please enter your name and email');
-                return;
-            }
-            showToast('🎉 Request received! We\'ll contact you within 24 hours.');
-            // Clear form
-            const form = document.getElementById('cateringForm');
-            if (form) form.reset();
+    // ========== 11. CARD ANIMATION ON SCROLL ==========
+    const animateCards = document.querySelectorAll('.product-card');
+    if (animateCards.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        animateCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
         });
     }
     
-    // Bulk Order Form Submit
-    const submitBulk = document.getElementById('submitBulkBtn');
-    if (submitBulk) {
-        submitBulk.addEventListener('click', function() {
-            const name = document.getElementById('bulkName')?.value;
-            if (!name) {
-                showToast('⚠️ Please enter your name');
-                return;
-            }
-            showToast('✓ Bulk order request sent! We\'ll contact you soon.');
-            const form = document.getElementById('bulkForm');
-            if (form) form.reset();
-        });
+    // ========== 12. MAP INITIALIZATION (Contact Page Only) ==========
+    if (document.getElementById('map') && typeof L !== 'undefined') {
+        const map = L.map('map').setView([9.02497, 38.74689], 14);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(map);
+        L.marker([9.02497, 38.74689]).addTo(map).bindPopup('💜 MIRA SHOPPING<br>Addis Ababa, Ethiopia').openPopup();
     }
     
-    // Contact Form Submit
-    const sendContact = document.getElementById('sendContactBtn');
-    if (sendContact) {
-        sendContact.addEventListener('click', function() {
-            const name = document.getElementById('contactName')?.value;
-            const email = document.getElementById('contactEmail')?.value;
-            if (!name || !email) {
-                showToast('⚠️ Please enter your name and email');
-                return;
-            }
-            showToast('📨 Message sent! We\'ll reply within 24 hours.');
-            const form = document.getElementById('contactForm');
-            if (form) form.reset();
-        });
-    }
+    // ========== 13. SHOP PAGE CART FUNCTIONALITY ==========
+    let cart = [];
+    const FREE_DELIVERY = 1500;
     
-    // Order Form Submit
-    const submitOrder = document.getElementById('submitOrderBtn');
-    if (submitOrder) {
-        submitOrder.addEventListener('click', function() {
-            const name = document.getElementById('orderName')?.value;
-            const phone = document.getElementById('orderPhone')?.value;
-            const address = document.getElementById('orderAddress')?.value;
-            if (!name || !phone || !address) {
-                showToast('⚠️ Please fill all required fields');
-                return;
-            }
-            showToast(`✨ Thanks ${name}! Your order has been placed. We'll call you to confirm.`);
-            const form = document.getElementById('orderForm');
-            if (form) form.reset();
+    window.updateCart = function() {
+        const cartDiv = document.getElementById('cartItems');
+        const totalSpan = document.getElementById('cartTotal');
+        const countSpan = document.getElementById('cartCount');
+        
+        if (!cartDiv) return;
+        
+        if (cart.length === 0) {
+            cartDiv.innerHTML = '<div class="empty-cart">🛒 Your cart is empty</div>';
+            if (totalSpan) totalSpan.textContent = 'ETB 0';
+            if (countSpan) countSpan.textContent = '(0 items)';
+            return;
+        }
+        
+        let html = '';
+        let total = 0;
+        cart.forEach((item, idx) => {
+            const itemTotal = item.price * item.qty;
+            total += itemTotal;
+            html += `
+                <div class="cart-item">
+                    <span class="item-name"><strong>${item.name}</strong></span>
+                    <div class="cart-controls">
+                        <button class="qty-btn" onclick="window.changeQty(${idx}, -1)">−</button>
+                        <span class="item-qty">${item.qty}</span>
+                        <button class="qty-btn" onclick="window.changeQty(${idx}, 1)">+</button>
+                        <button class="remove-btn" onclick="window.removeItem(${idx})">🗑️</button>
+                    </div>
+                    <span class="item-total-price">ETB ${itemTotal}</span>
+                </div>
+            `;
         });
-    }
-    
-    // ========== ANIMATION FOR CARDS ON SCROLL ==========
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        cartDiv.innerHTML = html;
+        if (totalSpan) totalSpan.textContent = `ETB ${total}`;
+        if (countSpan) countSpan.textContent = `(${cart.reduce((s, i) => s + i.qty, 0)} items)`;
+        
+        const deliveryNote = document.querySelector('.delivery-note');
+        if (deliveryNote) {
+            if (total >= FREE_DELIVERY) {
+                deliveryNote.innerHTML = '✅ Free delivery applied!';
+                deliveryNote.style.color = '#4CAF50';
+            } else {
+                deliveryNote.innerHTML = `🚚 Add ETB ${FREE_DELIVERY - total} more for free delivery`;
+                deliveryNote.style.color = '#666';
+            }
+        }
     };
     
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
+    window.changeQty = function(idx, delta) {
+        const newQty = cart[idx].qty + delta;
+        if (newQty <= 0) {
+            cart.splice(idx, 1);
+        } else {
+            cart[idx].qty = newQty;
+        }
+        window.updateCart();
+    };
+    
+    window.removeItem = function(idx) {
+        cart.splice(idx, 1);
+        window.updateCart();
+    };
+    
+    window.clearCart = function() {
+        cart = [];
+        window.updateCart();
+    };
+    
+    // Add to cart from shop items
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const itemDiv = this.closest('.shop-item');
+            if (itemDiv) {
+                const name = itemDiv.getAttribute('data-name');
+                const price = parseInt(itemDiv.getAttribute('data-price'));
+                const existing = cart.find(i => i.name === name);
+                if (existing) {
+                    existing.qty++;
+                } else {
+                    cart.push({ name, price, qty: 1 });
+                }
+                window.updateCart();
+                showToast(`✓ ${name} added`);
             }
         });
-    }, observerOptions);
-    
-    // Apply fade-in animation to product cards
-    document.querySelectorAll('.product-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(card);
     });
     
-    // ========== CATEGORY FILTER FOR HOME PAGE ==========
-    const categoryLinks = document.querySelectorAll('.category-link');
-    if (categoryLinks.length > 0) {
-        categoryLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                categoryLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                const category = this.getAttribute('data-cat');
-                const productCards = document.querySelectorAll('.product-card');
-                productCards.forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'block';
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 50);
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-    }
-    
-    // ========== PRODUCT PAGE CATEGORY FILTER ==========
-    const catButtons = document.querySelectorAll('.cat-btn');
-    if (catButtons.length > 0) {
-        catButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                catButtons.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                const category = this.getAttribute('data-category');
-                const productCards = document.querySelectorAll('.product-card');
-                productCards.forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 10);
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-    }
-    
-    // ========== CHECKOUT BUTTON (Shop Page) ==========
+    // Checkout button
     const checkoutBtn = document.getElementById('checkoutBtn');
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', function() {
-            const name = document.getElementById('orderName')?.value;
-            const phone = document.getElementById('orderPhone')?.value;
-            const address = document.getElementById('orderAddress')?.value;
+            const name = document.getElementById('orderName')?.value.trim();
+            const phone = document.getElementById('orderPhone')?.value.trim();
+            const address = document.getElementById('orderAddress')?.value.trim();
             
             if (!name || !phone || !address) {
                 showToast('⚠️ Please fill Name, Phone, and Address');
                 return;
             }
             
-            const cartItems = document.querySelectorAll('.cart-item');
-            if (cartItems.length === 0) {
-                showToast('🛒 Your cart is empty. Please add items.');
+            if (cart.length === 0) {
+                showToast('⚠️ Your cart is empty. Please add items.');
                 return;
             }
             
-            showToast(`✅ Thanks ${name}! Your order has been placed. We'll call you to confirm.`);
+            const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+            showToast(`✅ Thanks ${name}! Your order (ETB ${total}) has been placed. We'll call you.`);
             
-            // Clear cart and form (if cart functions exist)
-            if (typeof window.clearCart === 'function') {
-                window.clearCart();
-            }
+            cart = [];
+            window.updateCart();
             
-            const orderForm = document.getElementById('orderForm');
-            if (orderForm) orderForm.reset();
+            if (document.getElementById('orderName')) document.getElementById('orderName').value = '';
+            if (document.getElementById('orderPhone')) document.getElementById('orderPhone').value = '';
+            if (document.getElementById('orderEmail')) document.getElementById('orderEmail').value = '';
+            if (document.getElementById('orderAddress')) document.getElementById('orderAddress').value = '';
+            if (document.getElementById('specialInstructions')) document.getElementById('specialInstructions').value = '';
         });
     }
     
-    // ========== ADD TO CART BUTTONS FOR SHOP PAGE ==========
-    const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
-    if (addToCartBtns.length > 0) {
-        addToCartBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const itemName = this.closest('.shop-item')?.getAttribute('data-name') || 'Item';
-                showToast(`✓ ${itemName} added to cart`);
-            });
-        });
+    // Initialize cart display on shop page
+    if (document.getElementById('cartItems')) {
+        window.updateCart();
     }
-    
-    // ========== QUANTITY BUTTONS STYLING FIX ==========
-    // Ensure +/- buttons are visible with proper styling
-    const style = document.createElement('style');
-    style.textContent = `
-        .qty-btn, .minus-btn, .plus-btn {
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            width: 32px !important;
-            height: 32px !important;
-            font-size: 18px !important;
-            font-weight: bold !important;
-            cursor: pointer !important;
-        }
-        .cart-controls {
-            display: flex !important;
-            align-items: center !important;
-            gap: 8px !important;
-        }
-    `;
-    document.head.appendChild(style);
     
     console.log('MIRA SHOPPING - Website loaded successfully!');
 });

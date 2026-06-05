@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Bulk orders for corporate events, weddings, and private celebrations">
+    <meta name="theme-color" content="#0A0A0A">
+    <title>Bulk Orders | MIRA SHOPPING | Sweets that make life sweeter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="sidebar-header">
+        <h3>💜 MIRA SHOPPING</h3>
+        <button class="close-sidebar" id="closeSidebarBtn"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html"><i class="fas fa-heart"></i> About</a>
+        <a href="menu.html"><i class="fas fa-candy-cane"></i> Products</a>
+        <a href="catering.html" class="active"><i class="fas fa-gift"></i> Bulk Orders</a>
+        <a href="contact.html"><i class="fas fa-map-pin"></i> Contact</a>
+    </div>
+    <a href="order.html" class="sidebar-order-btn"><i class="fas fa-shopping-bag"></i> SHOP NOW</a>
+    <div class="sidebar-footer">
+        <p><i class="fas fa-phone-alt"></i> 0934 170001 / 0940 203020</p>
+        <p><i class="fas fa-envelope"></i> mira@shopping.com</p>
+        <p><i class="fas fa-location-dot"></i> Addis Ababa, Ethiopia</p>
+        <p><i class="fab fa-instagram"></i> @mira_shopping_2</p>
+    </div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<header class="main-header">
+    <div class="container">
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <div class="logo"><a href="index.html"><h1>💜 MIRA SHOPPING</h1><span>Sweets that make life sweeter ❤️</span></a></div>
+        <nav class="desktop-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="menu.html">Products</a>
+            <a href="catering.html" class="active">Bulk Orders</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="order.html" class="btn-order"><i class="fas fa-shopping-bag"></i> Shop Now</a>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1920&h=800&fit=crop');"></div>
+        <div class="hero-overlay-dark"></div>
+        <div class="container hero-content">
+            <h1>Bulk Orders</h1>
+            <p>Sweet treats for your special events</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="cards-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=400&h=300&fit=crop" class="card-image" alt="Corporate">
+                <div class="card-content">
+                    <h3>Corporate Events</h3>
+                    <p>Sweet boxes for meetings, conferences & employee gifts</p>
+                    <div class="price">From ETB 2,500</div>
+                    <button class="bulk-inquiry" data-package="Corporate Events">Request Quote</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9582?w=400&h=300&fit=crop" class="card-image" alt="Wedding">
+                <div class="card-content">
+                    <h3>Wedding Favors</h3>
+                    <p>Custom sweet favors, dessert tables & cake</p>
+                    <div class="price">Custom Package</div>
+                    <button class="bulk-inquiry" data-package="Wedding Favors">Request Quote</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581798459219-318e76aecc7b?w=400&h=300&fit=crop" class="card-image" alt="Party">
+                <div class="card-content">
+                    <h3>Birthday & Parties</h3>
+                    <p>Candy buffets, cake pops, and sweet tables</p>
+                    <div class="price">From ETB 2,000</div>
+                    <button class="bulk-inquiry" data-package="Birthday Parties">Request Quote</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="catering-form" id="bulkForm">
+            <h3>📋 Request a Bulk Order Quote</h3>
+            <p>Tell us about your event and we'll create a custom sweet package for you</p>
+            <div class="form-row">
+                <input type="text" id="bulkName" placeholder="Full Name" required>
+                <input type="email" id="bulkEmail" placeholder="Email Address" required>
+            </div>
+            <div class="form-row">
+                <input type="tel" id="bulkPhone" placeholder="Phone Number">
+                <select id="bulkEvent">
+                    <option>Corporate Event</option>
+                    <option>Wedding / Anniversary</option>
+                    <option>Birthday Party</option>
+                    <option>Other Celebration</option>
+                </select>
+            </div>
+            <textarea rows="3" id="bulkMsg" placeholder="Event details, guest count, preferences..."></textarea>
+            <button id="submitBulkBtn">Submit Inquiry</button>
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">💜 MIRA SHOPPING</div>
+                <p class="tagline">Sweets that make life sweeter ❤️</p>
+                <p>Premium Sweets & Treats<br>Addis Ababa, Ethiopia</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Products</a></li>
+                    <li><a href="catering.html">Bulk Orders</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="order.html">Shop Now</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <ul class="hours">
+                    <li>Monday - Saturday</li>
+                    <li><strong>9:00 AM - 9:00 PM</strong></li>
+                    <li>Sunday</li>
+                    <li><strong>10:00 AM - 7:00 PM</strong></li>
+                    <li>Holidays</li>
+                    <li><strong>10:00 AM - 6:00 PM</strong></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone"></i> 0934 170001</li>
+                    <li><i class="fas fa-phone"></i> 0940 203020</li>
+                    <li><i class="fas fa-envelope"></i> mira@shopping.com</li>
+                    <li><i class="fab fa-instagram"></i> @mira_shopping_2</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</li>
+                </ul>
+                <div class="payment-badge">
+                    <span>We Accept:</span>
+                    <i class="fas fa-money-bill-wave"></i>
+                    <i class="fas fa-mobile-alt"></i>
+                    <i class="fas fa-university"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MIRA SHOPPING — Sweets that make life sweeter ❤️ | Premium Sweets & Treats | Addis Ababa, Ethiopia</p>
+            <p class="footer-heart">✨ Sweet treats made with love ✨</p>
+        </div>
+    </div>
+</footer>
+
+<div id="toastMsg" class="toast-msg">✓ Request sent</div>
+<script src="js/main.js"></script>
+<script>
+    document.getElementById('submitBulkBtn')?.addEventListener('click', function() {
+        const name = document.getElementById('bulkName')?.value;
+        if (!name) { alert('Please enter your name'); return; }
+        showToast('✓ Bulk order request sent! We\'ll contact you soon.');
+        document.getElementById('bulkName').value = '';
+        document.getElementById('bulkEmail').value = '';
+        document.getElementById('bulkPhone').value = '';
+        document.getElementById('bulkMsg').value = '';
+    });
+    document.querySelectorAll('.bulk-inquiry').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.getElementById('bulkForm')?.scrollIntoView({ behavior: 'smooth' });
+            showToast('📋 Please fill the form below');
+        });
+    });
+</script>
+</body>
+</html>

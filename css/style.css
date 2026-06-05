@@ -304,7 +304,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* ========== HORIZONTAL CATEGORY NAVIGATION (FIXED) ========== */
+/* ========== HORIZONTAL CATEGORY NAVIGATION ========== */
 .category-nav-section {
     padding: 20px 0;
     background: var(--white);
@@ -614,7 +614,7 @@ body {
     color: var(--text-muted);
 }
 
-/* ========== CART ITEM WITH VISIBLE +/- BUTTONS (FIXED) ========== */
+/* Cart Item Styles */
 .cart-item {
     display: flex;
     justify-content: space-between;

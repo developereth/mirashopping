@@ -46,12 +46,4 @@ document.addEventListener('DOMContentLoaded', function() {
             toast.classList.remove('show');
         }, 2500);
     };
-    
-    // Add to Cart
-    document.querySelectorAll('.add-to-cart').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            const item = this.getAttribute('data-item') || 'Item';
-            showToast('✓ ' + item + ' added to cart');
-        });
-    });
 });

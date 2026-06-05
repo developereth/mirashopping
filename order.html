@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Shop premium sweets online for delivery in Addis Ababa">
+    <meta name="theme-color" content="#0A0A0A">
+    <title>Shop Now | MIRA SHOPPING | Sweets that make life sweeter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="sidebar-header">
+        <h3>💜 MIRA SHOPPING</h3>
+        <button class="close-sidebar" id="closeSidebarBtn"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html"><i class="fas fa-heart"></i> About</a>
+        <a href="menu.html"><i class="fas fa-candy-cane"></i> Products</a>
+        <a href="catering.html"><i class="fas fa-gift"></i> Bulk Orders</a>
+        <a href="contact.html"><i class="fas fa-map-pin"></i> Contact</a>
+    </div>
+    <a href="order.html" class="sidebar-order-btn"><i class="fas fa-shopping-bag"></i> SHOP NOW</a>
+    <div class="sidebar-footer">
+        <p><i class="fas fa-phone-alt"></i> 0934 170001 / 0940 203020</p>
+        <p><i class="fas fa-envelope"></i> mira@shopping.com</p>
+        <p><i class="fas fa-location-dot"></i> Addis Ababa, Ethiopia</p>
+        <p><i class="fab fa-instagram"></i> @mira_shopping_2</p>
+    </div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<header class="main-header">
+    <div class="container">
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <div class="logo"><a href="index.html"><h1>💜 MIRA SHOPPING</h1><span>Sweets that make life sweeter ❤️</span></a></div>
+        <nav class="desktop-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="menu.html">Products</a>
+            <a href="catering.html">Bulk Orders</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="order.html" class="btn-order"><i class="fas fa-shopping-bag"></i> Shop Now</a>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1920&h=800&fit=crop');"></div>
+        <div class="hero-overlay-dark"></div>
+        <div class="container hero-content">
+            <h1>Shop Now</h1>
+            <p>Sweet treats delivered to your doorstep</p>
+        </div>
+    </section>
+
+    <section class="order-section">
+        <div class="container">
+            <div class="order-layout">
+                <div class="order-summary">
+                    <h3>Your Cart <span id="cartCount">(0 items)</span></h3>
+                    <div id="cartItems" class="cart-items">
+                        <div class="empty-cart">Your cart is empty</div>
+                    </div>
+                    <div class="cart-total">
+                        <strong>Total:</strong> <strong id="cartTotal">ETB 0</strong>
+                    </div>
+                    <div class="delivery-note">🚚 Free delivery on orders over ETB 1,500</div>
+                </div>
+
+                <div class="order-form">
+                    <h3>Delivery Details</h3>
+                    <input type="text" id="orderName" placeholder="Full Name" required>
+                    <input type="tel" id="orderPhone" placeholder="Phone Number" required>
+                    <input type="email" id="orderEmail" placeholder="Email Address">
+                    <input type="text" id="orderAddress" placeholder="Delivery Address" required>
+                    <div class="form-row-small">
+                        <select id="orderDate">
+                            <option>Today</option>
+                            <option>Tomorrow</option>
+                            <option>In 2 days</option>
+                        </select>
+                        <select id="orderTime">
+                            <option>Morning (9am-12pm)</option>
+                            <option>Afternoon (12pm-4pm)</option>
+                            <option>Evening (4pm-7pm)</option>
+                        </select>
+                    </div>
+                    <textarea rows="2" id="specialInstructions" placeholder="Special instructions..."></textarea>
+                    <button id="submitOrderBtn">Place Order</button>
+                </div>
+            </div>
+
+            <h3 class="menu-title">Add Items to Cart</h3>
+            <div class="items-grid">
+                <div class="order-item" data-name="Premium Chocolate Box" data-price="450">
+                    <span>🍫 Premium Chocolate Box</span>
+                    <span>ETB 450</span>
+                    <button class="add-item">+ Add</button>
+                </div>
+                <div class="order-item" data-name="French Macarons" data-price="350">
+                    <span>🍬 French Macarons</span>
+                    <span>ETB 350</span>
+                    <button class="add-item">+ Add</button>
+                </div>
+                <div class="order-item" data-name="Luxury Cupcakes" data-price="420">
+                    <span>🧁 Luxury Cupcakes</span>
+                    <span>ETB 420</span>
+                    <button class="add-item">+ Add</button>
+                </div>
+                <div class="order-item" data-name="Gourmet Candy Bundle" data-price="280">
+                    <span>🍬 Gourmet Candy Bundle</span>
+                    <span>ETB 280</span>
+                    <button class="add-item">+ Add</button>
+                </div>
+                <div class="order-item" data-name="Premium Gift Basket" data-price="650">
+                    <span>🎁 Premium Gift Basket</span>
+                    <span>ETB 650</span>
+                    <button class="add-item">+ Add</button>
+                </div>
+                <div class="order-item" data-name="Celebration Cake" data-price="850">
+                    <span>🎂 Celebration Cake</span>
+                    <span>ETB 850</span>
+                    <button class="add-item">+ Add</button>
+                </div>
+                <div class="order-item" data-name="Chocolate Truffles" data-price="380">
+                    <span>🍫 Chocolate Truffles</span>
+                    <span>ETB 380</span>
+                    <button class="add-item">+ Add</button>
+                </div>
+                <div class="order-item" data-name="Artisan Chocolate Bar" data-price="180">
+                    <span>🍫 Artisan Chocolate Bar</span>
+                    <span>ETB 180</span>
+                    <button class="add-item">+ Add</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">💜 MIRA SHOPPING</div>
+                <p class="tagline">Sweets that make life sweeter ❤️</p>
+                <p>Premium Sweets & Treats<br>Addis Ababa, Ethiopia</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Products</a></li>
+                    <li><a href="catering.html">Bulk Orders</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="order.html">Shop Now</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <ul class="hours">
+                    <li>Monday - Saturday</li>
+                    <li><strong>9:00 AM - 9:00 PM</strong></li>
+                    <li>Sunday</li>
+                    <li><strong>10:00 AM - 7:00 PM</strong></li>
+                    <li>Holidays</li>
+                    <li><strong>10:00 AM - 6:00 PM</strong></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone"></i> 0934 170001</li>
+                    <li><i class="fas fa-phone"></i> 0940 203020</li>
+                    <li><i class="fas fa-envelope"></i> mira@shopping.com</li>
+                    <li><i class="fab fa-instagram"></i> @mira_shopping_2</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</li>
+                </ul>
+                <div class="payment-badge">
+                    <span>We Accept:</span>
+                    <i class="fas fa-money-bill-wave"></i>
+                    <i class="fas fa-mobile-alt"></i>
+                    <i class="fas fa-university"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MIRA SHOPPING — Sweets that make life sweeter ❤️ | Premium Sweets & Treats | Addis Ababa, Ethiopia</p>
+            <p class="footer-heart">✨ Sweet treats made with love ✨</p>
+        </div>
+    </div>
+</footer>
+
+<div id="toastMsg" class="toast-msg">✓ Added to cart</div>
+<script src="js/main.js"></script>
+<script>
+    let cart = [];
+    const FREE_DELIVERY = 1500;
+
+    function updateCart() {
+        const cartDiv = document.getElementById('cartItems');
+        const totalSpan = document.getElementById('cartTotal');
+        const countSpan = document.getElementById('cartCount');
+        
+        if (cart.length === 0) {
+            cartDiv.innerHTML = '<div class="empty-cart">🛒 Your cart is empty</div>';
+            totalSpan.textContent = 'ETB 0';
+            countSpan.textContent = '(0 items)';
+            return;
+        }
+        
+        let html = '';
+        let total = 0;
+        cart.forEach((item, idx) => {
+            const itemTotal = item.price * item.qty;
+            total += itemTotal;
+            html += `
+                <div class="cart-item">
+                    <span><strong>${item.name}</strong></span>
+                    <div class="cart-controls">
+                        <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
+                        <span>${item.qty}</span>
+                        <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+                        <button class="remove-btn" onclick="removeItem(${idx})">🗑️</button>
+                    </div>
+                    <span>ETB ${itemTotal}</span>
+                </div>
+            `;
+        });
+        cartDiv.innerHTML = html;
+        totalSpan.textContent = `ETB ${total}`;
+        countSpan.textContent = `(${cart.reduce((s, i) => s + i.qty, 0)} items)`;
+        
+        const deliveryNote = document.querySelector('.delivery-note');
+        if (total >= FREE_DELIVERY) {
+            deliveryNote.innerHTML = '✅ Free delivery applied!';
+            deliveryNote.style.color = '#FF2D75';
+        } else {
+            const remaining = FREE_DELIVERY - total;
+            deliveryNote.innerHTML = `🚚 Add ETB ${remaining} more for free delivery`;
+            deliveryNote.style.color = '#9B30FF';
+        }
+    }
+
+    window.changeQty = function(idx, delta) {
+        const newQty = cart[idx].qty + delta;
+        if (newQty <= 0) {
+            cart.splice(idx, 1);
+        } else {
+            cart[idx].qty = newQty;
+        }
+        updateCart();
+    };
+
+    window.removeItem = function(idx) {
+        cart.splice(idx, 1);
+        updateCart();
+    };
+
+    document.querySelectorAll('.add-item').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const itemDiv = this.closest('.order-item');
+            const name = itemDiv.getAttribute('data-name');
+            const price = parseInt(itemDiv.getAttribute('data-price'));
+            const existing = cart.find(i => i.name === name);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCart();
+            showToast(`✓ ${name} added`);
+        });
+    });
+
+    document.getElementById('submitOrderBtn')?.addEventListener('click', function() {
+        const name = document.getElementById('orderName')?.value;
+        const phone = document.getElementById('orderPhone')?.value;
+        const address = document.getElementById('orderAddress')?.value;
+        
+        if (!name || !phone || !address) {
+            alert('Please fill Name, Phone, and Address');
+            return;
+        }
+        if (cart.length === 0) {
+            alert('Please add items to your cart');
+            return;
+        }
+        
+        const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+        showToast(`✅ Thanks ${name}! Your order (ETB ${total}) has been placed. We'll call you.`);
+        cart = [];
+        updateCart();
+        document.getElementById('orderName').value = '';
+        document.getElementById('orderPhone').value = '';
+        document.getElementById('orderEmail').value = '';
+        document.getElementById('orderAddress').value = '';
+        document.getElementById('specialInstructions').value = '';
+    });
+</script>
+</body>
+</html>

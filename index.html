@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="MIRA SHOPPING - Sweets that make life sweeter. Premium sweets & shopping in Addis Ababa, Ethiopia">
+    <meta name="description" content="MIRA SHOPPING - Sweets that make life sweeter. Premium sweets & treats in Addis Ababa, Ethiopia">
     <meta name="theme-color" content="#0A0A0A">
     <title>MIRA SHOPPING | Sweets that make life sweeter</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,6 +12,7 @@
 </head>
 <body>
 
+<!-- Mobile Sidebar -->
 <div class="mobile-sidebar" id="mobileSidebar">
     <div class="sidebar-header">
         <h3>💜 MIRA SHOPPING</h3>
@@ -20,11 +21,11 @@
     <div class="sidebar-nav">
         <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
         <a href="about.html"><i class="fas fa-heart"></i> About</a>
-        <a href="menu.html"><i class="fas fa-candy-cane"></i> Products</a>
-        <a href="catering.html"><i class="fas fa-gift"></i> Bulk Orders</a>
+        <a href="products.html"><i class="fas fa-candy-cane"></i> Products</a>
+        <a href="shop.html"><i class="fas fa-shopping-bag"></i> Shop</a>
         <a href="contact.html"><i class="fas fa-map-pin"></i> Contact</a>
     </div>
-    <a href="order.html" class="sidebar-order-btn"><i class="fas fa-shopping-bag"></i> SHOP NOW</a>
+    <a href="shop.html" class="sidebar-order-btn"><i class="fas fa-shopping-cart"></i> SHOP NOW</a>
     <div class="sidebar-footer">
         <p><i class="fas fa-phone-alt"></i> 0934 170001 / 0940 203020</p>
         <p><i class="fas fa-envelope"></i> mira@shopping.com</p>
@@ -34,6 +35,7 @@
 </div>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
+<!-- Header -->
 <header class="main-header">
     <div class="container">
         <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
@@ -46,27 +48,29 @@
         <nav class="desktop-nav">
             <a href="index.html" class="active">Home</a>
             <a href="about.html">About</a>
-            <a href="menu.html">Products</a>
-            <a href="catering.html">Bulk Orders</a>
+            <a href="products.html">Products</a>
+            <a href="shop.html">Shop</a>
             <a href="contact.html">Contact</a>
         </nav>
-        <a href="order.html" class="btn-order"><i class="fas fa-shopping-bag"></i> Shop Now</a>
+        <a href="shop.html" class="btn-order"><i class="fas fa-shopping-cart"></i> Shop Now</a>
     </div>
 </header>
 
 <main>
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1920&h=800&fit=crop');"></div>
         <div class="hero-overlay-dark"></div>
         <div class="container hero-content">
             <h1>Sweets that make <span class="highlight">life sweeter</span> <span class="heart">❤️</span></h1>
             <p>Premium quality sweets & treats in the heart of Addis Ababa</p>
-            <a href="menu.html" class="hero-btn">Shop Collection →</a>
+            <a href="products.html" class="hero-btn">Shop Collection →</a>
         </div>
     </section>
 
+    <!-- Featured Products -->
     <section class="container">
-        <h2 class="section-title">💜 Featured Sweets</h2>
+        <h2 class="section-title">💜 Bestsellers</h2>
         <div class="cards-grid">
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1587314156026-5df6b3fa0a5b?w=400&h=300&fit=crop" class="card-image" alt="Chocolate Box">
@@ -74,7 +78,7 @@
                     <h3>Premium Chocolate Box</h3>
                     <p>Assorted Belgian chocolates</p>
                     <div class="price">ETB 450</div>
-                    <button class="add-to-cart" data-item="Premium Chocolate Box - 450 ETB">Add to Cart</button>
+                    <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
             </div>
             <div class="product-card">
@@ -83,7 +87,7 @@
                     <h3>French Macarons</h3>
                     <p>12 pieces, assorted flavors</p>
                     <div class="price">ETB 350</div>
-                    <button class="add-to-cart" data-item="French Macarons - 350 ETB">Add to Cart</button>
+                    <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
             </div>
             <div class="product-card">
@@ -92,22 +96,34 @@
                     <h3>Luxury Cupcakes</h3>
                     <p>Set of 6 gourmet cupcakes</p>
                     <div class="price">ETB 420</div>
-                    <button class="add-to-cart" data-item="Luxury Cupcakes - 420 ETB">Add to Cart</button>
+                    <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
             </div>
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1587314156026-5df6b3fa0a5b?w=400&h=300&fit=crop" class="card-image" alt="Candy Bundle">
+                <img src="https://images.unsplash.com/photo-1581798459219-318e76aecc7b?w=400&h=300&fit=crop" class="card-image" alt="Candy Bundle">
                 <div class="card-content">
                     <h3>Gourmet Candy Bundle</h3>
                     <p>Mixed premium candies</p>
                     <div class="price">ETB 280</div>
-                    <button class="add-to-cart" data-item="Gourmet Candy Bundle - 280 ETB">Add to Cart</button>
+                    <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="promo-banner">
+        <div class="container">
+            <div class="promo-content">
+                <h3>✨ Free Delivery ✨</h3>
+                <p>On orders over ETB 1,500 within Addis Ababa</p>
+                <a href="shop.html" class="promo-btn">Start Shopping →</a>
             </div>
         </div>
     </section>
 </main>
 
+<!-- Footer -->
 <footer class="main-footer">
     <div class="container">
         <div class="footer-grid">
@@ -127,10 +143,9 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="menu.html">Products</a></li>
-                    <li><a href="catering.html">Bulk Orders</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="shop.html">Shop</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="order.html">Shop Now</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -140,8 +155,6 @@
                     <li><strong>9:00 AM - 9:00 PM</strong></li>
                     <li>Sunday</li>
                     <li><strong>10:00 AM - 7:00 PM</strong></li>
-                    <li>Holidays</li>
-                    <li><strong>10:00 AM - 6:00 PM</strong></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -151,7 +164,6 @@
                     <li><i class="fas fa-phone"></i> 0940 203020</li>
                     <li><i class="fas fa-envelope"></i> mira@shopping.com</li>
                     <li><i class="fab fa-instagram"></i> @mira_shopping_2</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</li>
                 </ul>
                 <div class="payment-badge">
                     <span>We Accept:</span>

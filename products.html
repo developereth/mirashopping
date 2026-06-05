@@ -45,6 +45,7 @@
 </header>
 
 <main>
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg" style="background-image: url('https://raw.githubusercontent.com/developereth/mirashopping/6b058b42c09805c017cdce5a04c856e689e22ebd/bunch-tasty-candies_23-2147689702.jpg');"></div>
         <div class="hero-overlay-light"></div>
@@ -55,7 +56,7 @@
     </section>
 
     <section class="container">
-        <!-- HORIZONTAL CATEGORY BUTTONS -->
+        <!-- HORIZONTAL CATEGORY BUTTONS - EXACTLY LIKE HOME PAGE -->
         <div class="category-nav-horizontal">
             <button class="cat-filter-btn active" data-filter="all">🍬 All Sweets</button>
             <button class="cat-filter-btn" data-filter="chocolates">🍫 Chocolates</button>
@@ -65,6 +66,7 @@
         </div>
 
         <div class="cards-grid" id="productsGrid">
+            <!-- Chocolates -->
             <div class="product-card" data-category="chocolates">
                 <img src="https://raw.githubusercontent.com/developereth/mirashopping/6b058b42c09805c017cdce5a04c856e689e22ebd/sweet-chocolate-pralines-candies-coffee-600nw-2687946123.jpg" class="card-image" alt="Premium Chocolate Box">
                 <div class="card-content">
@@ -83,6 +85,7 @@
                     <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
             </div>
+            <!-- Candies -->
             <div class="product-card" data-category="candies">
                 <img src="https://raw.githubusercontent.com/developereth/mirashopping/6b058b42c09805c017cdce5a04c856e689e22ebd/colored-candies-yellow_93675-12198.jpg" class="card-image" alt="Gourmet Candy Bundle">
                 <div class="card-content">
@@ -110,6 +113,7 @@
                     <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
             </div>
+            <!-- Cakes -->
             <div class="product-card" data-category="cakes">
                 <img src="https://raw.githubusercontent.com/developereth/mirashopping/6b058b42c09805c017cdce5a04c856e689e22ebd/HD-wallpaper-chocolate-macaroons-biscuits-chocolate-biscuits-sweets-baked-goods-thumbnail.jpg" class="card-image" alt="Luxury Cupcakes">
                 <div class="card-content">
@@ -128,6 +132,7 @@
                     <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
             </div>
+            <!-- Gifts -->
             <div class="product-card" data-category="gifts">
                 <img src="https://raw.githubusercontent.com/developereth/mirashopping/6b058b42c09805c017cdce5a04c856e689e22ebd/149515014-sweet-food-top-view-of-sweets-candies-and-cookies-sweets-background.jpg" class="card-image" alt="Premium Gift Basket">
                 <div class="card-content">
@@ -154,14 +159,17 @@
 
 <script src="js/main.js"></script>
 <script>
-    // Category Filter for Products Page
-    document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+    // Simple category filter - exactly like home page
+    const filterBtns = document.querySelectorAll('.cat-filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+    
+    filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
-            document.querySelectorAll('.cat-filter-btn').forEach(b => b.classList.remove('active'));
+            filterBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            const filter = this.getAttribute('data-filter');
-            document.querySelectorAll('.product-card').forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            const filterValue = this.getAttribute('data-filter');
+            productCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';

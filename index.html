@@ -12,7 +12,6 @@
 </head>
 <body>
 
-<!-- Mobile Sidebar -->
 <div class="mobile-sidebar" id="mobileSidebar">
     <div class="sidebar-header">
         <h3>💜 MIRA SHOPPING</h3>
@@ -35,7 +34,6 @@
 </div>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-<!-- Header -->
 <header class="main-header">
     <div class="container">
         <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
@@ -57,9 +55,9 @@
 </header>
 
 <main>
-    <!-- Hero Section -->
+    <!-- Hero Section with YOUR Image -->
     <section class="hero">
-        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1920&h=800&fit=crop');"></div>
+        <div class="hero-bg" style="background-image: url('https://raw.githubusercontent.com/developereth/mirashopping/6b058b42c09805c017cdce5a04c856e689e22ebd/thumb-1920-325778.jpg');"></div>
         <div class="hero-overlay-light"></div>
         <div class="container hero-content">
             <h1>Sweets that make <span class="highlight">life sweeter</span> <span class="heart">❤️</span></h1>
@@ -68,7 +66,7 @@
         </div>
     </section>
 
-    <!-- Category Navigation - Horizontal -->
+    <!-- Category Navigation -->
     <section class="category-nav-section">
         <div class="container">
             <div class="category-nav-horizontal">
@@ -81,12 +79,12 @@
         </div>
     </section>
 
-    <!-- Featured Products -->
+    <!-- Featured Products with YOUR Images -->
     <section class="container">
         <h2 class="section-title">💜 Bestsellers</h2>
         <div class="cards-grid" id="featuredGrid">
             <div class="product-card" data-category="chocolates">
-                <img src="https://images.unsplash.com/photo-1587314156026-5df6b3fa0a5b?w=400&h=300&fit=crop" class="card-image" alt="Chocolate Box">
+                <img src="https://raw.githubusercontent.com/developereth/mirashopping/6b058b42c09805c017cdce5a04c856e689e22ebd/sweet-chocolate-pralines-candies-coffee-600nw-2687946123.jpg" class="card-image" alt="Premium Chocolate Box">
                 <div class="card-content">
                     <h3>Premium Chocolate Box</h3>
                     <p>Assorted Belgian chocolates</p>
@@ -95,16 +93,16 @@
                 </div>
             </div>
             <div class="product-card" data-category="candies">
-                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop" class="card-image" alt="Macarons">
+                <img src="https://raw.githubusercontent.com/developereth/mirashopping/6b058b42c09805c017cdce5a04c856e689e22ebd/colored-candies-yellow_93675-12198.jpg" class="card-image" alt="Gourmet Candies">
                 <div class="card-content">
-                    <h3>French Macarons</h3>
-                    <p>12 pieces, assorted flavors</p>
-                    <div class="price">ETB 350</div>
+                    <h3>Gourmet Candy Bundle</h3>
+                    <p>Mixed premium candies</p>
+                    <div class="price">ETB 280</div>
                     <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
             </div>
             <div class="product-card" data-category="cakes">
-                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9582?w=400&h=300&fit=crop" class="card-image" alt="Cupcake Set">
+                <img src="https://raw.githubusercontent.com/developereth/mirashopping/6b058b42c09805c017cdce5a04c856e689e22ebd/HD-wallpaper-chocolate-macaroons-biscuits-chocolate-biscuits-sweets-baked-goods-thumbnail.jpg" class="card-image" alt="Luxury Cupcakes">
                 <div class="card-content">
                     <h3>Luxury Cupcakes</h3>
                     <p>Set of 6 gourmet cupcakes</p>
@@ -112,12 +110,12 @@
                     <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
             </div>
-            <div class="product-card" data-category="candies">
-                <img src="https://images.unsplash.com/photo-1581798459219-318e76aecc7b?w=400&h=300&fit=crop" class="card-image" alt="Candy Bundle">
+            <div class="product-card" data-category="gifts">
+                <img src="https://raw.githubusercontent.com/developereth/mirashopping/6b058b42c09805c017cdce5a04c856e689e22ebd/149515014-sweet-food-top-view-of-sweets-candies-and-cookies-sweets-background.jpg" class="card-image" alt="Premium Gift Basket">
                 <div class="card-content">
-                    <h3>Gourmet Candy Bundle</h3>
-                    <p>Mixed premium candies</p>
-                    <div class="price">ETB 280</div>
+                    <h3>Premium Gift Basket</h3>
+                    <p>Assorted sweets gift box</p>
+                    <div class="price">ETB 650</div>
                     <a href="shop.html" class="shop-now-btn">Shop Now →</a>
                 </div>
             </div>
@@ -136,7 +134,6 @@
     </section>
 </main>
 
-<!-- Footer -->
 <footer class="main-footer">
     <div class="container">
         <div class="footer-grid">
@@ -196,7 +193,6 @@
 <div id="toastMsg" class="toast-msg">✓ Added to cart</div>
 <script src="js/main.js"></script>
 <script>
-    // Category filter for home page
     document.querySelectorAll('.category-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();

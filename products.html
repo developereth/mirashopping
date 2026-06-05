@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Premium sweets collection - chocolates, macarons, cupcakes and more">
+    <meta name="theme-color" content="#0A0A0A">
+    <title>Products | MIRA SHOPPING | Sweets that make life sweeter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="sidebar-header"><h3>💜 MIRA SHOPPING</h3><button class="close-sidebar" id="closeSidebarBtn"><i class="fas fa-times"></i></button></div>
+    <div class="sidebar-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html"><i class="fas fa-heart"></i> About</a>
+        <a href="products.html" class="active"><i class="fas fa-candy-cane"></i> Products</a>
+        <a href="shop.html"><i class="fas fa-shopping-bag"></i> Shop</a>
+        <a href="contact.html"><i class="fas fa-map-pin"></i> Contact</a>
+    </div>
+    <a href="shop.html" class="sidebar-order-btn"><i class="fas fa-shopping-cart"></i> SHOP NOW</a>
+    <div class="sidebar-footer">
+        <p><i class="fas fa-phone-alt"></i> 0934 170001 / 0940 203020</p>
+        <p><i class="fab fa-instagram"></i> @mira_shopping_2</p>
+    </div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<header class="main-header">
+    <div class="container">
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <div class="logo"><a href="index.html"><h1>💜 MIRA SHOPPING</h1><span>Sweets that make life sweeter ❤️</span></a></div>
+        <nav class="desktop-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html" class="active">Products</a>
+            <a href="shop.html">Shop</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="shop.html" class="btn-order"><i class="fas fa-shopping-cart"></i> Shop Now</a>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1920&h=800&fit=crop');"></div>
+        <div class="hero-overlay-dark"></div>
+        <div class="container hero-content">
+            <h1>Our Sweet Collection</h1>
+            <p>Premium sweets made with love</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="chocolates">🍫 Chocolates</button>
+            <button class="filter-btn" data-category="cakes">🎂 Cakes</button>
+            <button class="filter-btn" data-category="candies">🍬 Candies</button>
+            <button class="filter-btn" data-category="gifts">🎁 Gifts</button>
+        </div>
+
+        <div class="cards-grid" id="productsGrid">
+            <div class="product-card" data-category="chocolates">
+                <img src="https://images.unsplash.com/photo-1587314156026-5df6b3fa0a5b?w=400&h=300&fit=crop" class="card-image" alt="Chocolate Box">
+                <div class="card-content">
+                    <h3>Premium Chocolate Box</h3>
+                    <p>Assorted Belgian chocolates</p>
+                    <div class="price">ETB 450</div>
+                    <a href="shop.html" class="shop-now-btn">Shop Now →</a>
+                </div>
+            </div>
+            <div class="product-card" data-category="chocolates">
+                <img src="https://images.unsplash.com/photo-1549007953-2f2c0f240c02?w=400&h=300&fit=crop" class="card-image" alt="Truffles">
+                <div class="card-content">
+                    <h3>Chocolate Truffles</h3>
+                    <p>12 pieces, dark chocolate</p>
+                    <div class="price">ETB 380</div>
+                    <a href="shop.html" class="shop-now-btn">Shop Now →</a>
+                </div>
+            </div>
+            <div class="product-card" data-category="cakes">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9582?w=400&h=300&fit=crop" class="card-image" alt="Cupcakes">
+                <div class="card-content">
+                    <h3>Luxury Cupcakes</h3>
+                    <p>Set of 6 gourmet cupcakes</p>
+                    <div class="price">ETB 420</div>
+                    <a href="shop.html" class="shop-now-btn">Shop Now →</a>
+                </div>
+            </div>
+            <div class="product-card" data-category="candies">
+                <img src="https://images.unsplash.com/photo-1581798459219-318e76aecc7b?w=400&h=300&fit=crop" class="card-image" alt="Candy">
+                <div class="card-content">
+                    <h3>Gourmet Candy Bundle</h3>
+                    <p>Mixed premium candies</p>
+                    <div class="price">ETB 280</div>
+                    <a href="shop.html" class="shop-now-btn">Shop Now →</a>
+                </div>
+            </div>
+            <div class="product-card" data-category="gifts">
+                <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=400&h=300&fit=crop" class="card-image" alt="Gift Basket">
+                <div class="card-content">
+                    <h3>Premium Gift Basket</h3>
+                    <p>Assorted sweets gift box</p>
+                    <div class="price">ETB 650</div>
+                    <a href="shop.html" class="shop-now-btn">Shop Now →</a>
+                </div>
+            </div>
+            <div class="product-card" data-category="cakes">
+                <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=400&h=300&fit=crop" class="card-image" alt="Birthday Cake">
+                <div class="card-content">
+                    <h3>Celebration Cake</h3>
+                    <p>Custom design, serves 10-12</p>
+                    <div class="price">ETB 850</div>
+                    <a href="shop.html" class="shop-now-btn">Shop Now →</a>
+                </div>
+            </div>
+            <div class="product-card" data-category="chocolates">
+                <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?w=400&h=300&fit=crop" class="card-image" alt="Chocolate Bar">
+                <div class="card-content">
+                    <h3>Artisan Chocolate Bar</h3>
+                    <p>Single-origin dark chocolate</p>
+                    <div class="price">ETB 180</div>
+                    <a href="shop.html" class="shop-now-btn">Shop Now →</a>
+                </div>
+            </div>
+            <div class="product-card" data-category="candies">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop" class="card-image" alt="Macarons">
+                <div class="card-content">
+                    <h3>French Macarons</h3>
+                    <p>12 pieces, assorted flavors</p>
+                    <div class="price">ETB 350</div>
+                    <a href="shop.html" class="shop-now-btn">Shop Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col"><div class="footer-logo">💜 MIRA SHOPPING</div><p class="tagline">Sweets that make life sweeter ❤️</p></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="products.html">Products</a></li><li><a href="shop.html">Shop</a></li></ul></div>
+            <div class="footer-col"><h4>Contact</h4><ul><li><i class="fas fa-phone"></i> 0934 170001</li><li><i class="fab fa-instagram"></i> @mira_shopping_2</li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 MIRA SHOPPING — Sweets that make life sweeter ❤️</p></div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const category = this.dataset.category;
+            document.querySelectorAll('.product-card').forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
